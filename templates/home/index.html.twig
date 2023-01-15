@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}{{ page_title_id | trans }}{% endblock %}
 
 {% block body %}
 <style>
@@ -16,5 +16,28 @@
         <li>Your controller at <code><a href="{{ '/home/egoui/php/translation-symfony/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
         <li>Your template at <code><a href="{{ '/home/egoui/php/translation-symfony/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
     </ul>
+</div>
+
+<div>
+    {# Translation using the filter (Arobase using this way) #}
+    {{ page_content_id | trans }}<br>
+
+    {# You can force a specific domain #}
+    {{ page_content_id | trans([], 'admin') }}<br>
+
+    {# You can force a specific locale#}
+    {{ page_content_id | trans([], null, 'fr') }}<br>
+
+    {# Using the trans block #}
+    {% trans %}page.content{% endtrans %}<br>
+
+    {# Using the trans block and custom domain #}
+    {% trans from 'admin' %}page.content{% endtrans %}<br>
+
+    {# Using the trans block and custom locale #}
+    {% trans into 'fr' %}page.content{% endtrans %}<br>
+
+    {# Using the trans block and all the above #}
+    {% trans from 'admin' into 'en_US' %}page.content{% endtrans %}<br>
 </div>
 {% endblock %}

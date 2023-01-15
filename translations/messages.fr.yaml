@@ -1,3 +1,6 @@
 This is an english sentence.: Ceci est une phrase en anglais.
 page.title: Bienvenue !
 page.content: Ceci est du content de page pour le domaine par défaut en français.
+
+page.title.about: A propos
+page.content.about: Contenu de la page about
